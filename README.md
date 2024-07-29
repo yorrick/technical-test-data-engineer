@@ -1,3 +1,18 @@
+# Executer les tests
+
+```
+pip install -r requirements-dev.txt
+pytest [--last-failed]
+```
+
+# Exécuter l'ingestion de données
+
+```
+./src/ingestion/cli.py full-ingest
+./src/ingestion/cli.py sanity-check
+```
+
+
 # Objectif
 
 Ce test est élaboré pour mettre en lumière votre expertise dans le domaine de l'ingénierie des données à travers l'utilisation du langage de programmation Python. Il vise également à évaluer votre capacité à soutenir les scientifiques des données dans le développement de solutions d'intelligence artificielle.
