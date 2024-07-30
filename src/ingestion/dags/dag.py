@@ -10,10 +10,6 @@ from datetime import datetime
 from src.ingestion.analytics import run_sanity_check
 from src.ingestion.cli import TMP_FOLDER, API_ENDPOINT
 from src.ingestion.ingestion import save_to_parquet, get_items
-import pendulum
-
-
-# local_tz = pendulum.timezone('America/New_York')
 
 
 def create_data_directory(root_path, **kwargs):
@@ -54,7 +50,7 @@ def run_sanity_check_fn(**kwargs):
 
 with DAG(
     "raw_data_ingestion_dag",
-    schedule_interval='32 14 * * *',  # UTC
+    schedule_interval="32 14 * * *",  # UTC
     start_date=days_ago(1),
     tags=["ingestion"],
 ) as dag1:
