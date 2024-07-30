@@ -12,6 +12,13 @@ pytest [--last-failed]
 ### Exécuter l'ingestion de données 
 
 Initialement l'ingestion de données a été developée pour être exécutée manuellement, mais j'ai ajouté un DAG Airflow pour automatiser le processus par la suite. J'ai conservé les deux méthodes pour montrer les deux approches (l'approche cli est également pratique à des fins de tests).
+Ces deux approches vont aller aspirer la totalité des données pour les enregistrer dans un répertoire `tmp/<date>/`, en format Parquet.
+
+Lancer le serveur FastAPI:
+
+```
+python -m uvicorn main:app
+```
 
 #### Manuellement
 
