@@ -5,12 +5,23 @@ pip install -r requirements-dev.txt
 pytest [--last-failed]
 ```
 
-# Exécuter l'ingestion de données
+# Exécuter l'ingestion de données 
+
+## Manuellement
 
 ```
 ./src/ingestion/cli.py full-ingest
 ./src/ingestion/cli.py sanity-check
 ```
+
+## Avec Airflow:
+
+```bash
+./airflow_init.sh  # first run only
+./airflow_start.sh  # can stop with ./airflow_terminate.sh
+```
+
+Go to [http://localhost:8080](http://localhost:8080) and trigger the `full_ingest` DAG.
 
 
 # Objectif

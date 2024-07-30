@@ -7,3 +7,4 @@ requests
 click
 pandas
 pyarrow
+apache-airflow

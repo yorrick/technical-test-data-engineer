@@ -9,7 +9,12 @@ class NonMatchingDimensionData:
     tracks: int
 
 
-def gen_sanity_check(full_dump_dir: str):
+def run_sanity_check(full_dump_dir: str) -> NonMatchingDimensionData:
+    """
+    Check if the data in the full dump directory is consistent
+    Only works for small datasets, as it loads all data into memory
+    For production use, this should be done in a distributed manner (using Athena, Spark, etc.)
+    """
     users = pq.read_table(f"{full_dump_dir}/users.parquet").to_pandas()
     tracks = pq.read_table(f"{full_dump_dir}/tracks.parquet").to_pandas()
     listen_history = pq.read_table(
