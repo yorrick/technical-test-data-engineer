@@ -192,3 +192,5 @@ cython_debug/
 #.idea/
 
 tmp/*
+.airflow/*
+.airflow_pids

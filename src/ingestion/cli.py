@@ -5,7 +5,7 @@ import click
 from datetime import datetime
 from pathlib import Path
 
-from src.ingestion.analytics import gen_sanity_check
+from src.ingestion.analytics import run_sanity_check
 from src.ingestion.ingestion import APIError, get_items, save_to_parquet
 
 TMP_FOLDER = Path(__file__).parent.parent.parent / "tmp"
@@ -60,7 +60,7 @@ def get_most_recent_directory(base_dir="tmp"):
 )
 def sanity_check(full_dump_dir: str):
     print(f"Starting sanity check on data in {full_dump_dir}")
-    non_matching_dim_data = gen_sanity_check(full_dump_dir)
+    non_matching_dim_data = run_sanity_check(full_dump_dir)
 
     if non_matching_dim_data.users > 0 or non_matching_dim_data.tracks > 0:
         print(
